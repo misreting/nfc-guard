@@ -1,0 +1,54 @@
+{
+  "name": "nfc-guard",
+  "version": "0.1.0",
+  "description": "Catches Unicode normalization bugs at the filesystem boundary: NFC vs NFD filenames that string equality sees as different but the filesystem may (or may not) treat as the same file.",
+  "keywords": [
+    "unicode",
+    "normalization",
+    "nfc",
+    "nfd",
+    "filesystem",
+    "apfs",
+    "hfs+",
+    "cross-platform",
+    "lint",
+    "manifest",
+    "lockfile"
+  ],
+  "license": "MIT",
+  "author": "__AUTHOR__",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/__GH_OWNER__/nfc-guard.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "nfc-guard": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && chmod +x dist/cli.js",
+    "demo": "node examples/collision-demo.ts",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build && npm run test:dist",
+    "test:dist": "node --test test/smoke.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.0"
+  }
+}
