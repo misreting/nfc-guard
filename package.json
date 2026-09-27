@@ -16,10 +16,10 @@
     "lockfile"
   ],
   "license": "MIT",
-  "author": "__AUTHOR__",
+  "author": "nfc-guard",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/__GH_OWNER__/nfc-guard.git"
+    "url": "git+https://github.com/agentscope-ai-java/nfc-guard.git"
   },
   "type": "module",
   "engines": {
